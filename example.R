@@ -15,8 +15,9 @@ x <- seq_along(esophageal)
 
 esophageal_df <- data.frame(x, esophageal, result, tf_pes)
 
-fig <- plot_ly(dataf, y = ~esophageal, type = 'scatter', mode = 'lines')
-fig <- fig %>% add_trace(y = ~tf_pes, name = 'trace 1', mode = 'lines')
-fig <- fig %>% add_trace(y = ~result, name = 'trace 0', mode = 'lines')
+fig <- plot_ly(dataf, y = ~esophageal, type = 'scatter', name = 'original pes', mode = 'lines')
+fig <- fig %>% add_trace(y = ~tf_pes, name = 'corrected pes (MATLAB)', mode = 'lines')
+fig <- fig %>% add_trace(y = ~result, name = 'corrected pes (R)', mode = 'lines')
+fig <- fig %>% layout(legend = list(x = 0.05, y = 0.05))
 
 fig
